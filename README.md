@@ -22,3 +22,12 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
+
+
+* TRAVIS AND HEROKU DEPLOYMENT SETUP.
+
+    ``` 
+    travis encrypt $(heroku auth:token) --add deploy.api_key 
+    ``` 
+
+    
