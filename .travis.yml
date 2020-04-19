@@ -7,9 +7,12 @@ services:
 before_script:
 - psql -c 'create database travis_test_test;' -U postgres
 - bin/rails db:migrate
+script:
+  - bundle exec rspec
 deploy:
   provider: heroku
   api_key:
     secure: jipOeKQK4Ry2ZqqHGbwPsFe+MRoBLq51l0kLMYBUNg/fCiB1iYUElw1uRy4KAEvQbsq/AtTEZ4ekDLpgf2N3aWULlYsA/1aLDQnEzHv8JgCADDAqSca60sjorP3/rnBB6IZaDPzBNX9t8TCzE8+gC/vD0tizoxyXJMKrG9zAu4VKRNN3H/0agusYr/gomgXCz/ThNz+23Ukx3jVlEeiEXKfwY0V8CU9HvfIlp4vW8n60o36IDhQ3kZUkMcZ1RgG0IeCkpYGdfhF+rMU74/PSTu6suGEtBx0Dlp998hZ90nnRXx2lq7e7u5gOSYrwTGkD4ur+rtTNEbDTDhR5wxspSWc9hcVb3KBbObcedyfsZ36HPckUbmmUatcZav2697gSKSc2Xg/ODfQXfn189Pw18/06YRzOC1heJIxe5NPSuVjMY7LwlCS7M291ZXlrUCaXRfVSRp8GZhSM8X8zeLLbZFSxOOQiC69z8wKalY+cbXfsfwd93Bqg7ecc+GC+zP4UnQYJ/d257+slGsMS0sdvgU67mDAVNVF7iOdyVYJcTtNM3OuPRdd3gRt2TjDOqhgIeLb3MrfaL18qhPUNKgEczr1aCJCDRmiDrgo2Lv5S4aBAOdvYMWxfE+decpkqkWVSLfrK2Khk4Gxzk0XJCH3PfFxoGSBfmhcSf11XIO2eKHA=
   app: travis-test2
   run: rails db:migrate
+

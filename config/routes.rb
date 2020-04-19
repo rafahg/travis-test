@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :widgets
   resources :articles
   root 'articles#index'
 
